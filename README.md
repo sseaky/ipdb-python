@@ -4,9 +4,19 @@ IPIP.net officially supported IP database ipdb format parsing library
 # Python Parse ipdb file
 
 ## Installing
-<pre>
-<code>pip install ipip-ipdb</code>
-</pre>
+
+
+
+**因与 [ipdb](https://github.com/gotcha/ipdb) 冲突，修改包名为 ipip_ipdb**
+
+
+
+~~pip install ipip-ipdb~~
+
+```
+python setup.py install
+```
+
 
 ## Dependents ( python 2.x or before python 3.3 )
 <pre><code>pip install ipaddress</code></pre>
@@ -14,15 +24,17 @@ IPIP.net officially supported IP database ipdb format parsing library
 ## Code Example
 ### 适用于IPDB格式的每周高级版，每日标准版，每日高级版，每日专业版，每日旗舰版
   <pre><code>
-import ipdb
+import ipip_ipdb
 
-db = ipdb.City("/path/to/city.ipv4.ipdb")
+
+db = ipip_ipdb.City("/path/to/city.ipv4.ipdb")
 # db.reload("/path/to/city.ipv4.ipdb") # update ipdb database file reload data
 print(db.is_ipv4(), db.is_ipv6())
 print(db.languages()) # support language
 print(db.fields()) #  support fields
 print(db.build_time()) #  build database time
 print(db.find("1.1.1.1", "CN")) #  query ip return array
+
 # print(db.find(u"1.1.1.1", "CN")) #  Python 2.7
 print(db.find_map("8.8.8.8", "CN")) #  query ip return dict
 print(db.find_info("118.28.1.1", "CN").country_name) 
@@ -54,9 +66,9 @@ anycast : ANYCAST       （每日旗舰版及其以上版本包含）
 
 ### 适用于IPDB格式的中国地区 IPv4 区县库
   <pre>
-import ipdb
+import ipip_ipdb
 
-db = ipdb.District("/path/to/china_district.ipdb")
+db = ipip_ipdb.District("/path/to/china_district.ipdb")
 print(db.is_ipv4(), db.is_ipv6())
 print(db.languages())
 print(db.fields())
@@ -68,18 +80,19 @@ print(db.find_info("1.12.13.255", "CN").country_name)
 
 ### 适用于IPDB格式的 IDC 库
 <pre>
-import ipdb
->>> db = ipdb.IDC("/path/to/idc_list.ipdb") 
+import ipip_ipdb
+>>> db = ipip_ipdb.IDC("/path/to/idc_list.ipdb") 
 >>> print db.find_info(u"8.142.10.33", "CN").isp_domain
 aliyun.com
 >>> print db.find_info(u"8.142.10.33", "CN").idc
 IDC
 </pre>
 
+
 ### 适用于IPDB格式的基站 IPv4 库
 <pre>
-import ipdb
-db = ipdb.BaseStation("/path/to/base_station.ipdb")
+import ipip_ipdb
+db = ipip_ipdb.BaseStation("/path/to/base_station.ipdb")
 print(db.is_ipv4(), db.is_ipv6())
 print(db.languages())
 print(db.fields())

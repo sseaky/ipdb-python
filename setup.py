@@ -13,7 +13,7 @@ setup(
     maintainer='frk',
     maintainer_email='frk@ipip.net',
     license='Apache License Version 2.0',
-    packages=['ipdb'],
+    packages=['ipip_ipdb'],
     platforms=["all"],
     url='https://github.com/ipipdotnet/ipdb-python',
     classifiers=[
